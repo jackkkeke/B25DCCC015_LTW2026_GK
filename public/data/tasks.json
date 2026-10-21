@@ -1,0 +1,51 @@
+
+[
+  {
+    "id": 1,
+    "title": "Thiết kế giao diện trang chủ",
+    "assignee": "An",
+    "priority": "Cao",
+    "hours": 8,
+    "done": false
+  },
+  {
+    "id": 2,
+    "title": "Viết API đăng nhập",
+    "assignee": "Bình",
+    "priority": "Cao",
+    "hours": 6,
+    "done": true
+  },
+  {
+    "id": 3,
+    "title": "Viết tài liệu hướng dẫn",
+    "assignee": "Chi",
+    "priority": "Thấp",
+    "hours": 3,
+    "done": false
+  },
+  {
+    "id": 4,
+    "title": "Kiểm thử chức năng giỏ hàng",
+    "assignee": "An",
+    "priority": "Trung bình",
+    "hours": 5,
+    "done": false
+  },
+  {
+    "id": 5,
+    "title": "Sửa lỗi hiển thị trên mobile",
+    "assignee": "Dũng",
+    "priority": "Trung bình",
+    "hours": 4,
+    "done": true
+  },
+  {
+    "id": 6,
+    "title": "Họp tổng kết sprint",
+    "assignee": "Chi",
+    "priority": "Thấp",
+    "hours": 2,
+    "done": false
+  }
+]

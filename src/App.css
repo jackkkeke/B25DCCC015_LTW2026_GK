@@ -1,38 +1,329 @@
-.App {
-  text-align: center;
+
+/* ===== 1. CÀI ĐẶT CHUNG ===== */
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #eff6ff;
+  --background: #f4f7fb;
+  --surface: #ffffff;
+  --text: #172033;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --success: #15803d;
+  --danger: #dc2626;
+  --radius: 12px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ===== 2. KHUNG NỘI DUNG ===== */
+.container {
+  width: calc(100% - 40px);
+  max-width: 1180px;
+  margin: 36px auto;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid #edf0f5;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+/* ===== 3. THANH ĐIỀU HƯỚNG ===== */
+.navbar {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 22px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 9px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.navbar a.active {
+  color: var(--primary);
+  background: #dbeafe;
+  font-weight: 700;
+}
+
+/* ===== 4. TIÊU ĐỀ ===== */
+h1 {
+  margin: 0 0 24px;
+  color: #172554;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.3;
+  letter-spacing: -0.7px;
+}
+
+h2,
+h3 {
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+p {
+  margin-top: 10px;
+  color: #475569;
+}
+
+/* ===== 5. BẢNG CÔNG VIỆC ===== */
+table {
+  width: 100%;
+  margin-top: 22px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 15px 16px;
+  text-align: left;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+
+thead th {
+  background: #f8fafc;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+tbody tr {
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: #f1f7ff;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== 6. TRẠNG THÁI HOÀN THÀNH ===== */
+.completed {
+  color: #64748b;
+  text-decoration: line-through;
+  text-decoration-color: #94a3b8;
+}
+
+/* ===== 7. NÚT BẤM ===== */
+button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 6px;
+  padding: 9px 15px;
+  margin: 3px 3px 3px 0;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  color: #334155;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-color: #bfdbfe;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+.navbar a:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* ===== 8. Ô NHẬP VÀ LỌC ===== */
+input,
+select {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  min-height: 44px;
+  padding: 10px 13px;
+  margin-top: 7px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* ===== 9. THANH TÌM KIẾM VÀ LỌC ===== */
+.filter-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 24px 0 18px;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.filter-bar > div {
+  flex: 1;
+  min-width: 220px;
+}
+
+.filter-bar label,
+.form-group label {
+  display: block;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.filter-bar input,
+.filter-bar select {
+  max-width: none;
+}
+
+/* ===== 10. BIỂU MẪU THÊM CÔNG VIỆC ===== */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group input,
+.form-group select {
+  max-width: 100%;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+/* ===== 11. THÔNG BÁO VÀ THÔNG TIN ===== */
+strong {
+  color: #1e293b;
+}
+
+small {
+  color: var(--text-muted);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+/* ===== 12. RESPONSIVE: MÁY TÍNH BẢNG VÀ ĐIỆN THOẠI ===== */
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+    padding: 18px;
+    border-radius: 13px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar {
+    gap: 6px;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+  }
+
+  .navbar a {
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+
+  .filter-bar {
+    gap: 14px;
+    padding: 15px;
+  }
+
+  .filter-bar > div {
+    min-width: 100%;
+  }
+
+  table {
+    min-width: 650px;
+  }
+
+  /* Cho phép cuộn bảng trên màn hình nhỏ */
+  .container {
+    overflow-x: auto;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
   }
 }
