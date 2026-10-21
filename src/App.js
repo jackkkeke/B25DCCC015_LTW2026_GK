@@ -369,14 +369,19 @@ function App() {
               </td>
             </tr>
           ))}
-
+      
           {visibleTasks.length === 0 && (
             <tr>
               <td colSpan="7">Không có dữ liệu</td>
             </tr>
           )}
-        </tbody>
+       </tbody>
       </table>
+
+      {/* Thêm thông tin sinh viên */}
+      <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '14px', color: '#555' }}>
+        <p>Họ và tên: Nguyễn Tuấn Anh - Mã SV: B25DCCC015 - Mã đề: DE2</p>
+      </div>
     </main>
   );
 }
